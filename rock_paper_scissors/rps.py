@@ -2,8 +2,21 @@
 
 import sys
 
+def recurse(prev,n,all_results):
+  # add R, or P, or S to prev
+  if n == 0:
+    all_results.append(prev)
+    return 
+  
+  recurse(prev + ['rock'], n-1, all_results)
+  recurse(prev + ['paper'], n-1, all_results)
+  recurse(prev + ['scissors'], n-1, all_results)
+
 def rock_paper_scissors(n):
-  pass 
+  results = []
+  recurse([], n, results)
+
+  return results 
 
 
 if __name__ == "__main__":
